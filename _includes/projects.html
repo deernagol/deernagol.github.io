@@ -1,24 +1,34 @@
-<div class="container projects-container">
-  <h3>{{ site.projects_title | default: "Projects" }}</h3>
-  {% for project in site.data.projects %}
-    <div class="row clearfix project">
-      <div class="col-xs-12 col-sm-4 col-md-3 left-column">
-        <h4>{{ project.name }}</h4>
-        {%- if project.link -%}
-          <a href="http://{{ project.link }}" target="_blank">{{ project.link }}</a>
-        {%- endif -%}
-        <p>
-          <a href="https://github.com/{{ project.github }}" target="_blank">
-            <i class="fa fa-github"></i>
-          </a>
-        </p>
-      </div>
-      <div class="col-xs-12 col-sm-8 col-md-9">
-        {%- if project.quote -%}
-          <p class="quote">{{ project.quote }}</p>
-        {%- endif -%}
-        {{ project.description | strip | markdownify }}
-      </div>
-    </div>
+{% assign projects = site.data.data.projects %}
+{% if projects %}
+<section class="section projects-section">
+
+  <h2 class="section-title">
+    <span class="fa-stack fa-xs">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-archive fa-stack-1x fa-inverse"></i>
+    </span>
+    {{ projects.title }}
+  </h2>
+
+  {% if projects.intro %}
+  <div class="intro">
+      <p>{{ projects.intro }}</p>
+  </div><!--//intro-->
+  {% endif %}
+
+  {% for project in projects.assignments %}
+    <div class="item">
+
+      <span class="project-title">
+        <a href="{{ project.link }}">{{ project.title }}</a>
+      </span>
+
+      {% if project.tagline %}
+      - <span class="project-tagline">{{ project.tagline }}</span>
+      {% endif %}
+
+    </div><!--//item-->
   {% endfor %}
-</div>
+
+</section><!--//section-->
+{% endif %}
