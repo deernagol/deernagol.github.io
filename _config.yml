@@ -1,30 +1,24 @@
-highlighter: rouge
+title: Researcher
+url: "https://ankitsultana.com"
+baseurl: "/researcher"
+
 markdown: kramdown
-rdiscount:
-  extensions: [smart]
-permalink: :title.html
-paginate: 5
-plugins: [jekyll-paginate]
-port: 4000
-safe: true
-url: http://jekyller.github.io/vitae
-author: Fábio Madeira
+#ins_logo: "./bits-logo.png"
 
-# edit this section with your information
-# jekyller.github.io - all contents run on /vitae/
-# for a normal use at the base of the server change it to "/"
-baseurl: /vitae/
-title: Logan Reed's Resume
-name: Logan Reed
-email: deernagol@protonmail.com
-email_full: mailto:deernagol@protonmail.com
-website: github.io/deernagol
-website_full: https://jekyller.github.io/deernagol
-github: trending
-twitter: twitter
-tel: +1 816 2486946
-tel_full: tel:+18162486946
-google_analytics:
+tracking_id: #
 
-# needed for travis-ci build
-exclude: [vendor]
+footer: yes
+footer_url: "https://github.com/ankitsultana"
+footer_text: "Page design by Ankit Sultana"
+
+sass:
+    style: compressed
+    sass_dir: _sass
+
+nav:
+ - name: "About"
+   link: "/researcher/"
+ - name: "Resume"
+   link: "resume.pdf"
+ - name: "Contact"
+   link: "contact"

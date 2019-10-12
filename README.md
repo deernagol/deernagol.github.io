@@ -1,49 +1,60 @@
+# Researcher
 
-# Vitae
+### [Demo Website](http://ankitsultana.com/researcher)
 
-[![Build Status](https://secure.travis-ci.org/jekyller/vitae.png?branch=gh-pages)](http://travis-ci.org/jekyller/vitae)
+A clean, single column, monospace resume template built for jekyll
 
-Personal homepage (curriculum vitae or resume) based on [João's](https://github.com/joaomoreno/resume).
-Vitae is built with [skeleton](http://getskeleton.com/), powered by [Jekyll](http://jekyllrb.com/) and freely
-hosted in [Github pages](https://pages.github.com/).
+### Installation
 
+Simply fork the repository and edit away.
 
-## View the live demo
+#### Installation via remote themes
 
-[Vitae Live Demo](https://jekyller.github.io/vitae)
+* Just setting `remote_theme: ankitsultana/researcher@gem` in `_config.yml` should work. Although in that case, I am not sure how
+you would build your site locally for testing. If you know how, open up an issue and let me know.
+* For more info, [refer this](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/).
 
+### Customization
 
-## Screenshots
+* You can edit the `.md` (markdown) files as you see fit. You can also add some other markdown file, say `foo.md` in the root directory of the repository. It will then be accessible like so `{{ url of your website }}/foo`.
 
-![resume page](https://raw.githubusercontent.com/jekyller/vitae/gh-pages/assets/images/vitae_screen.png)
+* You can of course remove `contact.md` if you don't want it
 
+* To set the heading, edit the `title` variable in `_config.yml`
 
-## How to use it
+* To edit the `links` mentioned on the navigation bar, you can edit `_config.yml`. For example:
 
-Simply clone/fork this repository, and then run `jekyll serve` inside the directory.
-Edit the site attributes in *_config.yml* and edit the various entries in *_includes/*.
+```
+nav:
+ - name: "About"
+   link: "/researcher/"
+ - name: "Resume"
+   link: "resume.pdf"
+ - name: "Contact"
+   link: "contact"
+```
 
-## Issues and contributing
+* You can change the accent (color of hyperlinks) by editing the `accent` variable in `_sass/vars.scss`
 
-I have tested this install with Ruby v2.4.2p198 (Mac OS RVM) and Jekyll v3.6.2. If you run into any problems please log them on the [issue tracker](https://github.com/jekyller/vitae/issues).
+* You can setup google analytics, by setting `tracking_id` in `_config.yml`
 
-Feel free pull-request your patches and fixes.
+* To add a profile picture, make sure to give the image tag the class `profile-picture`. In other words,do it like so:
 
+```html
+<img class="profile-picture" src="sherlock.jpg">
+```
 
-## Thanks
+* You can remove/customize the footer as you like by setting the
+appropriate variables in `_config.yml`
 
-A lot of the work had been already done by the Joao. Many thanks to him :smile:
+* (New in v1.2.0) You can add institute logo at the top, by setting `ins_logo` in `_config.yml`. If you want
+to adjust the logo's size, try setting `max-height` in `#ins-logo` in file `./_sass/_style.scss` to the desired
+value
 
-Profile picture from [pexels](https://www.pexels.com/photo/portrait-black-african-ethnicity-person-9494/).
+![Institute Logo Image Sample](https://github.com/ankitsultana/assets/raw/master/ins-logo-sample.png)
 
+**Note:** Customizing the accent color might cause merge conflicts if you later try to merge from `bk2dcradle/researcher` to fetch updates/patches etc. (applicable only if you have forked).
 
-## Copyright & License
+### License
 
-Copyright (C) 2015 - Released under the MIT License.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[GNU GPL v3](https://github.com/bk2dcradle/researcher/blob/gh-pages/LICENSE)
