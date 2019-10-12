@@ -1,4 +1,10 @@
-title: Résumé Title
-baseurl: "/resume/"
-theme: "jekyll-theme-minimal-resume"
-color: gray
+# Site Settings
+
+title: "C'thulu Resume"
+
+# Author Info
+
+author: Elsa Gonsiorowski
+email: gonsie@me.com
+
+exclude: [README.md]

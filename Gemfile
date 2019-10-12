@@ -1,5 +1,2 @@
-source "https://rubygems.org"
-
-gem "jekyll-theme-minimal-resume"
-
-bundle install
+source 'https://rubygems.org'
+gem 'jekyll'
