@@ -65,16 +65,22 @@
     <!-- Resume -->
     <section id="resume" class="section container">
       <h2>Résumé</h2>
-      <div class="card">
-        <div class="resume-actions">
-          <a href="assets/lreedresume.pdf" class="btn btn-primary" download>Download PDF</a>
-          <a href="assets/lreedresume.pdf" class="btn btn-outline" target="_blank" rel="noopener">Open in new tab</a>
-        </div>
-        <!-- Embedded PDF (falls back gracefully on mobile) -->
-        <object data="assets/lreedresume.pdf" type="application/pdf" class="resume-embed" aria-label="Embedded résumé PDF">
-          <p>Your browser can’t display PDFs here. <a href="assets/lreedresume.pdf" target="_blank" rel="noopener">Open the résumé</a>.</p>
-        </object>
-      </div>
+     <div class="card">
+  <button id="resumeToggle" class="btn btn-primary" aria-expanded="false">
+    View Résumé
+  </button>
+  
+  <div id="resumeContent" class="collapse">
+    <div class="resume-actions">
+      <a href="assets/resume.pdf" class="btn btn-primary" download>Download PDF</a>
+      <a href="assets/resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">Open in new tab</a>
+    </div>
+    <!-- Embedded PDF -->
+    <object data="assets/resume.pdf" type="application/pdf" class="resume-embed" aria-label="Embedded résumé PDF">
+      <p>Your browser can’t display PDFs here. <a href="assets/resume.pdf" target="_blank" rel="noopener">Open the résumé</a>.</p>
+    </object>
+  </div>
+</div>
     </section>
 
     <!-- Contact -->
@@ -114,4 +120,5 @@
   <script src="script.js" defer></script>
 </body>
 </html>
+
 
