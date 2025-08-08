@@ -1,155 +1,45 @@
-:root {
-  --bg: #0f1320;          /* corporate midnight gradient base */
-  --bg-2: #151a2e;
-  --surface: #ffffff;
-  --text: #0b1220;
-  --muted: #5b6475;
-  --brand: #2d6cdf;       /* calm corporate blue */
-  --brand-600: #2356b1;
-  --border: #e7eaf0;
-  --radius: 12px;
-  --shadow: 0 8px 24px rgba(0,0,0,.08);
-  --container: 1120px;
-  --gap: 1rem;
+/* ---------- THEME BACKGROUNDS (Apple-style luxury) ---------- */
+
+/* 1) Default (light) */
+body {
+  /* clean, soft light gradient with subtle center glow */
+  background:
+    radial-gradient(1400px 800px at 50% -10%, rgba(0,0,0,0.05), transparent 60%),
+    radial-gradient(1200px 700px at 50% 120%, rgba(0,0,0,0.04), transparent 60%),
+    linear-gradient(180deg, #fafafa 0%, #eaeaea 100%);
+  color: var(--text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface: #121620;
-    --text: #e7ecf6;
-    --muted: #a7b0c3;
-    --border: #1f2636;
-    --shadow: 0 8px 24px rgba(0,0,0,.35);
+/* 2) Auto-switch to dark if no manual override and OS prefers dark */
+html:not([data-theme]) @media (prefers-color-scheme: dark) {
+  body {
+    /* deep charcoal with gentle vignette; super minimal */
+    background:
+      radial-gradient(1100px 600px at 50% -20%, rgba(255,255,255,0.06), transparent 55%),
+      radial-gradient(1000px 600px at 50% 120%, rgba(255,255,255,0.04), transparent 55%),
+      linear-gradient(180deg, #1c1c1e 0%, #000000 100%);
   }
 }
 
-/* Reset-ish */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: var(--text);
-  background: radial-gradient(1200px 600px at 10% -10%, var(--bg), transparent),
-              radial-gradient(1200px 600px at 110% -20%, var(--bg-2), transparent),
-              linear-gradient(180deg, #f7f9fc, #f4f6fb);
-  min-height: 100vh;
+/* 3) Manual override via your theme toggle (wins over system) */
+html[data-theme="light"] body {
+  background:
+    radial-gradient(1400px 800px at 50% -10%, rgba(0,0,0,0.05), transparent 60%),
+    radial-gradient(1200px 700px at 50% 120%, rgba(0,0,0,0.04), transparent 60%),
+    linear-gradient(180deg, #fafafa 0%, #eaeaea 100%);
 }
 
-/* Utilities */
-.container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
-.section { padding: 56px 0; }
-h1, h2 { margin: 0 0 .5rem 0; letter-spacing: .2px; }
-h1 { font-size: clamp(28px, 3vw + 8px, 44px); }
-h2 { font-size: clamp(22px, 2vw + 6px, 32px); }
-.subtitle { color: var(--muted); margin: 4px 0 16px; }
-.lede { font-size: 1.05rem; color: var(--text); }
-.tight { line-height: 1.15; }
-
-/* Header */
-.site-header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(255,255,255,.7);
-  backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-@media (prefers-color-scheme: dark) {
-  .site-header { background: rgba(12,15,24,.7); }
-}
-.nav {
-  display: flex; align-items: center; justify-content: space-between;
-  height: 64px;
-}
-.brand { display: inline-flex; align-items: center; gap: .6rem; color: var(--text); text-decoration: none; font-weight: 650; }
-.brand-mark { color: var(--brand); }
-nav a { color: var(--text); text-decoration: none; margin: 0 .6rem; }
-nav a:hover { color: var(--brand); }
-.link-icon { display: inline-flex; align-items: center; padding: 8px; border-radius: 8px; }
-.theme-toggle { margin-left: .4rem; border: 1px solid var(--border); background: transparent; border-radius: 8px; padding: 6px 8px; cursor: pointer; color: var(--text); }
-
-/* Hero */
-.hero { padding: 72px 0; }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 28px;
-  align-items: center;
-}
-.avatar {
-  width: 180px; height: 180px; object-fit: cover;
-  border-radius: 16px; border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  background: #fff;
-}
-.cta { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 14px; }
-
-/* Cards & Lists */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-}
-.kv { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
-
-/* Resume */
-.resume-actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 12px; }
-.resume-embed {
-  width: 100%;
-  height: min(80vh, 900px);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+html[data-theme="dark"] body {
+  background:
+    radial-gradient(1100px 600px at 50% -20%, rgba(255,255,255,0.06), transparent 55%),
+    radial-gradient(1000px 600px at 50% 120%, rgba(255,255,255,0.04), transparent 55%),
+    linear-gradient(180deg, #1c1c1e 0%, #000000 100%);
 }
 
-/* Contact form */
-form.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.field { display: grid; gap: 6px; }
-.field-full { grid-column: 1 / -1; }
-.field input, .field textarea {
-  width: 100%; padding: 12px 12px;
-  border: 1px solid var(--border); border-radius: 10px;
-  background: transparent; color: var(--text);
-}
-.actions { display: flex; align-items: center; gap: 16px; margin-top: 4px; }
-.form-note { color: var(--muted); font-size: .95rem; }
-
-/* Buttons */
-.btn {
-  --btn-bg: var(--brand);
-  --btn-fg: #fff;
-  --btn-border: transparent;
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: .5rem; padding: 10px 14px; border-radius: 10px;
-  font-weight: 600; text-decoration: none; cursor: pointer;
-  border: 1px solid var(--btn-border); color: var(--btn-fg); background: var(--btn-bg);
-}
-.btn:hover { filter: brightness(1.05); transform: translateY(-1px); transition: .15s ease; }
-.btn-primary { --btn-bg: var(--brand); --btn-border: var(--brand-600); }
-.btn-outline { --btn-bg: transparent; --btn-fg: var(--brand); --btn-border: var(--brand); }
-.btn-ghost { --btn-bg: transparent; --btn-fg: var(--text); --btn-border: var(--border); }
-
-/* Footer */
-.site-footer {
-  border-top: 1px solid var(--border);
-  margin-top: 48px;
-  background: rgba(255,255,255,.4);
-  backdrop-filter: blur(6px);
-}
-.footer-grid {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 0;
-}
-.link-inline { color: var(--brand); text-decoration: none; }
-.link-inline:hover { text-decoration: underline; }
-
-/* Responsive */
-@media (max-width: 760px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .avatar { justify-self: center; }
-  form.grid { grid-template-columns: 1fr; }
+/* Optional: polish contrast in dark mode */
+html[data-theme="dark"] {
+  --surface: #121620;
+  --text: #e7ecf6;
+  --muted: #a7b0c3;
+  --border: #1f2636;
 }
