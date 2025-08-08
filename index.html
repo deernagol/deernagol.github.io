@@ -1,124 +1,80 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>[Your Name] — Resume & Contact</title>
-  <meta name="description" content="[Your Name] — Resume site and contact information." />
-  <link rel="preload" href="assets/profile.jpg" as="image">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-mark">■</span> <span>[Your Name]</span>
-      </a>
-      <nav aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#resume">Résumé</a>
-        <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a class="link-icon" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <!-- LinkedIn SVG -->
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.84-2.2 3.79-2.2 4.05 0 4.8 2.67 4.8 6.15V24h-4v-7.05c0-1.68-.03-3.85-2.35-3.85-2.36 0-2.72 1.84-2.72 3.73V24h-4V8z" fill="currentColor"/></svg>
-        </a>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀︎</button>
-      </nav>
-    </div>
-  </header>
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic|Open+Sans:300,400,500,700|Waiting+for+the+Sunrise|Shadows+Into+Light' rel='stylesheet' type='text/css'>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="hero container">
-      <div class="hero-grid">
-        <img class="avatar" src="assets/headshot.jpg" alt="[Your Name] headshot" />
-        <div class="hero-copy">
-          <h1 class="tight">[Your Name]</h1>
-          <p class="subtitle">[Your Title] • [City, ST]</p>
-          <p class="lede">
-            [1–2 line professional summary. Impact, industry focus, tech stack or specialties.]
-          </p>
-          <div class="cta">
-            <a href="#resume" class="btn btn-primary">View Résumé</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
-            <a href="assets/lreedresume.pdf" class="btn btn-ghost" download>Download PDF</a>
-          </div>
-        </div>
+<div class="wrapper clearfix">
+  <div class="left">
+
+    <div class="name-hero">
+
+      <div class="me-img"></div>
+
+      <div class="name-text">
+
+        <h1>Anthony <em>Adamski</em></h1>
+        <p>10 Iroquois St Boston, MA 02120</p>
+        <p>adamskianthony@gmail.com</p>
+        <p>(956) 500-5558</p>
+
       </div>
-    </section>
 
-    <!-- About -->
-    <section id="about" class="section container">
-      <h2>About</h2>
-      <div class="card">
-        <p>
-          Brief credentials snapshot: years of experience, domains, key wins, and what you’re looking for next.
-        </p>
-        <ul class="kv">
-          <li><strong>Expertise:</strong> Comp Strategy • Power BI • Excel Modeling • HRIS</li>
-          <li><strong>Highlights:</strong> [Quantified achievement], [Another win]</li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Resume -->
-    <section id="resume" class="section container">
-      <h2>Résumé</h2>
-     <div class="card">
-  <button id="resumeToggle" class="btn btn-primary" aria-expanded="false">
-    View Résumé
-  </button>
-  
-  <div id="resumeContent" class="collapse">
-    <div class="resume-actions">
-      <a href="assets/resume.pdf" class="btn btn-primary" download>Download PDF</a>
-      <a href="assets/resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">Open in new tab</a>
     </div>
-    <!-- Embedded PDF -->
-    <object data="assets/resume.pdf" type="application/pdf" class="resume-embed" aria-label="Embedded résumé PDF">
-      <p>Your browser can’t display PDFs here. <a href="assets/resume.pdf" target="_blank" rel="noopener">Open the résumé</a>.</p>
-    </object>
+
   </div>
-</div>
-    </section>
+  <div class="right">
 
-    <!-- Contact -->
-    <section id="contact" class="section container">
-      <h2>Get in touch</h2>
-      <div class="card">
-        <form class="grid" method="post" action="mailto:you@yourdomain.com" enctype="text/plain">
-          <!-- If you prefer a hosted form (Formspree, etc.), replace action with their endpoint -->
-          <label class="field">
-            <span>Name</span>
-            <input type="text" name="name" required placeholder="Jane Doe">
-          </label>
-          <label class="field">
-            <span>Email</span>
-            <input type="email" name="email" required placeholder="jane@example.com">
-          </label>
-          <label class="field field-full">
-            <span>Message</span>
-            <textarea name="message" rows="6" required placeholder="How can I help?"></textarea>
-          </label>
-          <div class="actions">
-            <button type="submit" class="btn btn-primary">Send</button>
-            <p class="form-note">Prefer email? <a href="mailto:logan@loganpricereed.com">logan@loganpricereed.com</a></p>
-          </div>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <small>© <span id="year"></span> [Your Name]. All rights reserved.</small>
-      <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener" class="link-inline">LinkedIn</a>
+    <div class="inner">
+      <section>
+        <h1>Employment</h1>
+        <p>Winter 2015 - Present <em>Grand Interactive, llc. | Mobile App Developer</em></p>
+        <p>Raised $78,000 in early stage funding, created initial design
+          concepts, and oversaw initial development. Currently oversee and maintain all front end code and server functionality.</p>
+        <p>Spring 2012 - Winter 2015 | <em>PadMatcher Inc. | CTO, Co-Founder</em></p>
+        <p>Raised $78,000 in early stage funding, created initial design
+          concepts, and oversaw initial development. Oversaw and maintained all front end code and server functionality.</p>
+        <p>Fall 2011 - Fall 2013 | <em>Penrose Realty llc. | Desinger & Assistant</em></p>
+        <p>Responsible for all technical areas. Maintain servers, computers, and provide in office technical support. Rebranded company from ground up including a fully responsive website. </p>
+      </section>
+      <section>
+        <h1>Technical Skills</h1>
+        <ul class="skill-set">
+          <li>Mobile Development</li>
+          <li>Xamarin</li>
+          <li>CSS3</li>
+          <li>Adobe Photoshop</li>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JQUERY</li>
+          <li>UI Design</li>
+          <li>Company Branding</li>
+          <li>Responsive Web Design</li>
+        </ul>
+      </section>
+      <section>
+        <h1>References</h1>
+        <p>William Grand | <em>Grand Interactive, llc. | CEO</em></p>
+        <p>(617) 448-0910 | wgrand@grandinteractive.com</p>
+        <p>Eric Chauvin | <em>PadMatcher Inc. | CEO</em></p>
+        <p>(617) 448-0910 | eric@padmatcher.com</p>
+        <p>Chris Heller <em>Penrose Realty LLC. | Broker</em></p>
+        <p>(617) 794-4554 | chris@penroserealty.com</p>
+      </section>
+      <section>
+        <h1>Personal Interests</h1>
+        <ul class="skill-set">
+          <li>Faith</li>
+          <li>Biblical Studies</li>
+          <li>Playing Guitar</li>
+          <li>Song Writing</li>
+          <li>Health & Nutrition</li>
+          <li>Reading</li>
+        </ul>
+      </section>
+      <section>
+        <div class="handmade">
+          <p>handmade by <em> Anthony Adamski</em></p>
+        </div>
+      </section>
     </div>
-  </footer>
 
-  <script src="script.js" defer></script>
-</body>
-</html>
+  </div>
 
-
+</div>
