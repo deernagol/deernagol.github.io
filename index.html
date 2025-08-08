@@ -1,80 +1,208 @@
-<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic|Open+Sans:300,400,500,700|Waiting+for+the+Sunrise|Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jonathan Reed — Resume & Contact</title>
+  <meta name="description" content="Minimal, professional resume download and contact page." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root {
+      --bg: #fafafa;
+      --card: #ffffff;
+      --text: #0a0a0a;
+      --muted: #6b7280;
+      --line: rgba(0,0,0,0.06);
+      --focus: #0a84ff; /* iOS accent-ish */
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c0c0c;
+        --card: #111111;
+        --text: #f5f5f5;
+        --muted: #9ca3af;
+        --line: rgba(255,255,255,0.12);
+        --focus: #2997ff; /* macOS Big Sur link-ish */
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-<div class="wrapper clearfix">
-  <div class="left">
+    .wrap {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 4rem 1.25rem;
+    }
 
-    <div class="name-hero">
+    .card {
+      width: 100%;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 0;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
 
-      <div class="me-img"></div>
+    /* Left: photo */
+    .aside {
+      padding: 2.5rem;
+      display: grid;
+      align-content: center;
+      border-right: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(0,0,0,0.03), transparent 40%);
+    }
+    .headshot {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+    }
+    .name {
+      margin: 1.25rem 0 0.25rem;
+      font-size: clamp(1.25rem, 1.2rem + 1vw, 1.75rem);
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+    .role { color: var(--muted); font-size: 0.95rem; }
 
-      <div class="name-text">
+    /* Right: actions */
+    .main {
+      padding: 2.5rem;
+      display: grid;
+      align-content: center;
+      gap: 1.75rem;
+    }
 
-        <h1>Anthony <em>Adamski</em></h1>
-        <p>10 Iroquois St Boston, MA 02120</p>
-        <p>adamskianthony@gmail.com</p>
-        <p>(956) 500-5558</p>
+    .section {
+      display: grid;
+      gap: 0.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px dotted var(--line);
+    }
+    .section:last-child { border-bottom: 0; padding-bottom: 0; }
 
-      </div>
+    .h {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      font-size: 1.05rem;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
 
-    </div>
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.1rem;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: transparent;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      will-change: transform;
+    }
+    .cta:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--focus) 40%, transparent); }
+    .cta:hover { background: color-mix(in oklab, var(--focus) 8%, transparent); border-color: color-mix(in oklab, var(--focus) 22%, var(--line)); transform: translateY(-1px); }
+    .cta:active { transform: translateY(0); }
 
+    .row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+    .note { color: var(--muted); font-size: 0.95rem; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+
+    /* Footer */
+    footer {
+      margin-top: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .card { grid-template-columns: 1fr; }
+      .aside { border-right: 0; border-bottom: 1px solid var(--line); }
+      .main { padding-top: 1.75rem; }
+      .name { text-align: center; }
+      .role { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="region" aria-label="Profile and actions">
+      <!-- Left: Photo + Name -->
+      <aside class="aside">
+        <img class="headshot" src="assets/headshot.jpg" alt="Professional headshot of Jonathan Reed" />
+        <h1 class="name">Jonathan Reed</h1>
+        <p class="role">Compensation Strategy & Analytics</p>
+      </aside>
+
+      <!-- Right: Resume & Contact -->
+      <main class="main">
+        <section class="section" aria-labelledby="resume-title">
+          <div class="h" id="resume-title">Resume</div>
+          <div class="row">
+            <!-- Replace resume.pdf in /assets/ to enable direct download. -->
+            <a class="cta" href="assets/resume.pdf" download aria-label="Download PDF resume">
+              <!-- Simple inline icon (paper/download) -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Download Résumé (PDF)
+            </a>
+            <span class="note">PDF only • Not visible inline</span>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="contact-title">
+          <div class="h" id="contact-title">Contact</div>
+          <div class="row" role="list">
+            <a class="cta" href="mailto:jonathan@example.com" role="listitem" aria-label="Email Jonathan">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Email Me
+            </a>
+            <span class="note" role="listitem">or copy: <span class="mono">jonathan@example.com</span></span>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="links-title">
+          <div class="h" id="links-title">Links</div>
+          <div class="row">
+            <a class="cta" href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noopener" aria-label="Open LinkedIn profile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.94 9.5V18M12 18v-5.2a3.1 3.1 0 0 1 6.2 0V18M5.8 6.1a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </section>
+      </main>
+    </article>
+
+    <footer>
+      © <span id="y"></span> Jonathan Reed
+    </footer>
   </div>
-  <div class="right">
 
-    <div class="inner">
-      <section>
-        <h1>Employment</h1>
-        <p>Winter 2015 - Present <em>Grand Interactive, llc. | Mobile App Developer</em></p>
-        <p>Raised $78,000 in early stage funding, created initial design
-          concepts, and oversaw initial development. Currently oversee and maintain all front end code and server functionality.</p>
-        <p>Spring 2012 - Winter 2015 | <em>PadMatcher Inc. | CTO, Co-Founder</em></p>
-        <p>Raised $78,000 in early stage funding, created initial design
-          concepts, and oversaw initial development. Oversaw and maintained all front end code and server functionality.</p>
-        <p>Fall 2011 - Fall 2013 | <em>Penrose Realty llc. | Desinger & Assistant</em></p>
-        <p>Responsible for all technical areas. Maintain servers, computers, and provide in office technical support. Rebranded company from ground up including a fully responsive website. </p>
-      </section>
-      <section>
-        <h1>Technical Skills</h1>
-        <ul class="skill-set">
-          <li>Mobile Development</li>
-          <li>Xamarin</li>
-          <li>CSS3</li>
-          <li>Adobe Photoshop</li>
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>JQUERY</li>
-          <li>UI Design</li>
-          <li>Company Branding</li>
-          <li>Responsive Web Design</li>
-        </ul>
-      </section>
-      <section>
-        <h1>References</h1>
-        <p>William Grand | <em>Grand Interactive, llc. | CEO</em></p>
-        <p>(617) 448-0910 | wgrand@grandinteractive.com</p>
-        <p>Eric Chauvin | <em>PadMatcher Inc. | CEO</em></p>
-        <p>(617) 448-0910 | eric@padmatcher.com</p>
-        <p>Chris Heller <em>Penrose Realty LLC. | Broker</em></p>
-        <p>(617) 794-4554 | chris@penroserealty.com</p>
-      </section>
-      <section>
-        <h1>Personal Interests</h1>
-        <ul class="skill-set">
-          <li>Faith</li>
-          <li>Biblical Studies</li>
-          <li>Playing Guitar</li>
-          <li>Song Writing</li>
-          <li>Health & Nutrition</li>
-          <li>Reading</li>
-        </ul>
-      </section>
-      <section>
-        <div class="handmade">
-          <p>handmade by <em> Anthony Adamski</em></p>
-        </div>
-      </section>
-    </div>
-
-  </div>
-
-</div>
+  <script>
+    // Set current year unobtrusively
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
