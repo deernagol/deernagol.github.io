@@ -43,3 +43,16 @@ html[data-theme="dark"] {
   --muted: #a7b0c3;
   --border: #1f2636;
 }
+
+/* Collapsible résumé section */
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding-top: 0;
+}
+
+.collapse.open {
+  max-height: 2000px; /* enough to fit the PDF */
+  padding-top: 16px;
+}
